@@ -12,7 +12,7 @@
 		<section id="checkmate">
 			<header id="header">
 				<h1>CheckMate</h1>
-				<input type="text" id="new-todo" placeholder="What needs to be done?">
+				{{input type="text" id="new-todo" placeholder="What needs to be done?" value=newTitle action="createTodo"}}
 			</header>
 
 			<section id="main">
@@ -60,6 +60,7 @@
 		<script src="js/application.js"></script>
 		<script src="js/router.js"></script>
 		<script src="js/models/todo.js"></script>
+		<script src="js/controllers/checkmate_controller.js"></script>
 	</body>
 
 </html>
