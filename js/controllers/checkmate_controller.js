@@ -1,12 +1,10 @@
 Checkmate.CheckmateController = Ember.ArrayController.extend({
 	actions: {
-		createTodo = function() {
+		createTodo: function() {
 			//Get the todo title set by the new todo text field
 			var title = this.get('newTitle');
-			if (!title)
-				return false;
-			if (!title.trim())
-				return;
+			if (!title) {return false;}
+			if (!title.trim()) {return;}
 
 			//create the new Todo model
 			var todo = this.store.createRecord('todo', {
