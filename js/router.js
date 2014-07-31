@@ -1,6 +1,8 @@
 Checkmate.Router.map(function() {
 	this.resource('checkmate', { path: '/' }, function() {
-		//additional child routes will go here later
+		//additional child routes
+		this.route('active');
+		this.route('completed');
 	});
 });
 
@@ -11,7 +13,29 @@ Checkmate.CheckmateRoute = Ember.Route.extend({
 });
 
 Checkmate.CheckmateIndexRoute = Ember.Route.extend({
-	model: function () {
+	model: function() {
 		return this.modelFor('checkmate');
+	}
+});
+
+Checkmate.CheckmateActiveRoute = Ember.Route.extend({
+	model: function() {
+		return this.store.filter('todo', function(todo) {
+			return !todo.get('isCompleted');
+		})
+	},
+	renderTemplate: function(controller) {
+		this.render('checkmate/index', {controller: controller});
+	}
+});
+
+Checkmate.CheckmateCompletedRoute = Ember.Route.extend({
+	model: function() {
+		return this.store.filter('todo', function(todo) {
+			return todo.get('isCompleted');
+		})
+	},
+	renderTemplate: function(controller) {
+		this.render('checkmate/index', {controller: controller});
 	}
 });
