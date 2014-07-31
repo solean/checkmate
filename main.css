@@ -23,7 +23,7 @@ button {
 body {
 	font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	line-height: 1.4em;
-	background: #eaeaea url('bg.png');
+	background: #6acda4;
 	color: #4d4d4d;
 	width: 550px;
 	margin: 0 auto;
@@ -48,8 +48,8 @@ body {
 
 #checkmate:before {
 	content: '';
-	border-left: 1px solid #f5d6d6;
-	border-right: 1px solid #f5d6d6;
+	border-left: 5px solid #6e83d0;
+	/*border-right: 1px solid #f5d6d6;*/
 	width: 2px;
 	position: absolute;
 	top: 0;
@@ -73,9 +73,9 @@ body {
 	font-size: 70px;
 	font-weight: bold;
 	text-align: center;
-	color: #b3b3b3;
-	color: rgba(255, 255, 255, 0.3);
-	text-shadow: -1px -1px rgba(0, 0, 0, 0.2);
+	color: #f1faf2;
+	color: rgba(241, 250, 242, 0.6);
+/*	text-shadow: -1px -1px rgba(0, 0, 0, 0.2); */
 	-webkit-text-rendering: optimizeLegibility;
 	-moz-text-rendering: optimizeLegibility;
 	-ms-text-rendering: optimizeLegibility;
@@ -83,12 +83,12 @@ body {
 	text-rendering: optimizeLegibility;
 }
 
-#header {
+/*#header {
 	padding-top: 15px;
 	border-radius: inherit;
-}
+}*/
 
-#header:before {
+/*#header:before {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -107,7 +107,7 @@ body {
 	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#9d8b83', EndColorStr='#847670');
 	border-top-left-radius: 1px;
 	border-top-right-radius: 1px;
-}
+}*/
 
 #new-todo,
 .edit {
@@ -146,7 +146,7 @@ body {
 #main {
 	position: relative;
 	z-index: 2;
-	border-top: 1px dotted #adadad;
+	border-top: 1px dotted #6e83d0;
 }
 
 label[for='toggle-all'] {
@@ -182,7 +182,7 @@ label[for='toggle-all'] {
 #todo-list li {
 	position: relative;
 	font-size: 24px;
-	border-bottom: 1px dotted #ccc;
+/*	border-bottom: 1px dotted #6e83d0; */
 }
 
 #todo-list li:last-child {
@@ -319,11 +319,10 @@ label[for='toggle-all'] {
 	left: 0;
 	height: 50px;
 	z-index: -1;
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3),
-				0 6px 0 -3px rgba(255, 255, 255, 0.8),
+	box-shadow:
 				0 7px 1px -3px rgba(0, 0, 0, 0.3),
-				0 43px 0 -6px rgba(255, 255, 255, 0.8),
-				0 44px 2px -6px rgba(0, 0, 0, 0.2);
+				0 43px 0 -6px rgba(255, 255, 255, 0.8);
+				/*0 44px 2px -6px rgba(0, 0, 0, 0.2);*/
 }
 
 #todo-count {
