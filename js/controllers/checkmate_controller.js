@@ -17,6 +17,14 @@ Checkmate.CheckmateController = Ember.ArrayController.extend({
 
 			//save the new model
 			todo.save();
+		},
+
+		clearCompleted: function() {
+			var completed = this.filterBy('isCompleted', true);
+			for (var i = 0; i < completed.length; i++) {
+				completed[i].deleteRecord();
+				completed[i].save();
+			};
 		}
 	},
 

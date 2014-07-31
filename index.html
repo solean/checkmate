@@ -23,7 +23,8 @@
 				  				{{edit-todo class="edit" value=title focus-out="acceptChanges" insert-newline="acceptChanges"}}
 				  			{{else}}
 				  				{{input type="checkbox" checked=isCompleted class="toggle"}}
-				  				<label {{action "editTodo" on="doubleClick"}}>{{title}}</label><button {{action "removeTodo"}} class="destroy"></button>
+				  				<label {{action "editTodo" on="doubleClick"}}>{{title}}</label>
+				  				<button {{action "removeTodo"}} class="destroy"></button>
 				  			{{/if}}
 				  		</li>
 					{{/each}}
@@ -49,7 +50,7 @@
 					</li>
 				</ul>
 
-				<button id="clear-completed">
+				<button {{action "clearCompleted"}} id="clear-completed">
 					Clear Completed
 				</button>
 			</footer>
