@@ -9,7 +9,8 @@ Checkmate.CheckmateController = Ember.ArrayController.extend({
 			//create the new Todo model
 			var todo = this.store.createRecord('todo', {
 				title: title,
-				isCompleted: false
+				isCompleted: false,
+				dateCreated: new Date()
 			});
 
 			//clear the new todo text field

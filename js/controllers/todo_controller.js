@@ -35,5 +35,19 @@ Checkmate.TodoController = Ember.ObjectController.extend({
 			model.save();
 			return value;
 		}
-	}.property('model.isCompleted')
+	}.property('model.isCompleted'),
+
+	timeSince: function() {
+		var currentTime = new Date();
+		var createdTime = this.get('dateCreated');
+		var timeSinceSeconds = Math.round((currentTime.getTime() - createdTime) / 1000);
+
+		if (timeSinceSeconds < 60) {
+			return timeSinceSeconds + " secs";
+		} else {
+			return (Math.round(timeSinceSeconds / 60)) + " min";
+		}
+
+		return timeSinceSeconds;
+	}.property('model.dateCreated')
 });
