@@ -39,3 +39,14 @@ Checkmate.CheckmateCompletedRoute = Ember.Route.extend({
 		this.render('checkmate/index', {controller: controller});
 	}
 });
+
+CheckMate.CheckmateShowDetailsRoute = Ember.Route.extend({
+	model: function() {
+		return this.store.fileter('todo', function(todo) {
+			return todo.get('isShowing');
+		})
+	},
+	renderTemplate: function(controller) {
+		this.render('checkmate/index/show-details', {controller: controller});
+	}
+});

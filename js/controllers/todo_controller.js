@@ -18,10 +18,21 @@ Checkmate.TodoController = Ember.ObjectController.extend({
 			var todo = this.get('model');
 			todo.deleteRecord();
 			todo.save();
+		},
+
+		showDetails: function() {
+			this.set('isShowing', true);
+			var time = this.get('timeSince');
+			console.log(time);
+		},
+
+		showNormal: function() {
+			this.set('isShowing', false);
 		}
 	},
 
 	isEditing: false,
+	isShowing: false,
 
 	isCompleted: function(key, value) {
 		var model = this.get('model');
@@ -41,13 +52,27 @@ Checkmate.TodoController = Ember.ObjectController.extend({
 		var currentTime = new Date();
 		var createdTime = this.get('dateCreated');
 		var timeSinceSeconds = Math.round((currentTime.getTime() - createdTime) / 1000);
+		var timeSinceMinutes = Math.round(timeSinceSeconds / 60);
+		var timeSinceHours = Math.round(timeSinceMinutes / 60);
+		var timeSinceDays = Math.round(timeSinceHours / 24);
 
 		if (timeSinceSeconds < 60) {
-			return timeSinceSeconds + " secs";
+			return timeSinceSeconds + " seconds since created";
+		} else if (timeSinceMinutes < 60) {
+			if (timeSinceMinutes === 1) {
+				return timeSinceMinutes + " minute since created";
+			}
+			return timeSinceMinutes + " minutes since created";
+		} else if (timeSinceHours < 24) {
+			if (timeSinceHours === 1) {
+				return timeSinceHours + " hour since created";
+			}
+			return timeSinceHours + " hours since created";
 		} else {
-			return (Math.round(timeSinceSeconds / 60)) + " min";
+			if(timeSinceDays === 1) {
+				return timeSinceDays + " day since created";
+			}
+			return timeSinceDays + " days since created";
 		}
-
-		return timeSinceSeconds;
 	}.property('model.dateCreated')
 });
