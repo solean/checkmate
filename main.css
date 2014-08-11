@@ -270,7 +270,7 @@ label[for='toggle-all'] {
 
 #todo-list li .show:hover {
 	display: true;
-	color: #1acbd9;
+	color: #6acda4;
 	/*text-shadow: 0 0 1px #000,
 				 0 0 10px rgba(199, 107, 107, 0.8);*/
 	-webkit-transform: scale(1.3);
